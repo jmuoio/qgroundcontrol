@@ -87,6 +87,7 @@ option(QGC_ENABLE_QT_VIDEOSTREAMING "Enable QtMultimedia video backend" OFF)
 
 # ============================================================================
 # MAVLink Configuration
+# Need to point these to my repo with custom mavlink message for L3H_Radio_status.xml
 # ============================================================================
 
 set(QGC_MAVLINK_GIT_REPO "https://github.com/mavlink/mavlink.git" CACHE STRING "MAVLink repository URL")
