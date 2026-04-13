@@ -272,6 +272,12 @@ public:
     Q_PROPERTY(bool     mavlinkSigning              READ mavlinkSigning             NOTIFY mavlinkSigningChanged)
     Q_PROPERTY(QString  mavlinkSigningKeyName       READ mavlinkSigningKeyName      NOTIFY mavlinkSigningChanged)
 
+    Q_PROPERTY(int  radioSNR    READ radioSNR    NOTIFY radioSNRChanged)
+    Q_PROPERTY(int  radioRSSI   READ radioRSSI   NOTIFY radioRSSIChanged)
+    Q_PROPERTY(int  radioHWTemp READ radioHWTemp NOTIFY radioHWTempChanged)
+
+
+
     /// Resets link status counters
     Q_INVOKABLE void resetCounters  ();
 
@@ -533,6 +539,9 @@ public:
     unsigned int    telemetryTXBuffer           () const{ return _telemetryTXBuffer; }
     int             telemetryLNoise             () const{ return _telemetryLNoise; }
     int             telemetryRNoise             () const{ return _telemetryRNoise; }
+    int             radioSNR                    () const { return _radioSNR; }
+    int             radioRSSI                   () const { return _radioRSSI; }
+    int             radioHWTemp                 () const { return _radioHWTemp; }
     bool            autoDisarm                  ();
     bool            orbitActive                 () const { return _orbitActive; }
     QGCMapCircle*   orbitMapCircle              () { return &_orbitMapCircle; }
@@ -803,6 +812,9 @@ signals:
     void telemetryTXBufferChanged       (unsigned int value);
     void telemetryLNoiseChanged         (int value);
     void telemetryRNoiseChanged         (int value);
+    void radioSNRChanged                (int value);
+    void radioRSSIChanged               (int value);
+    void radioHWTempChanged             (int value);
     void autoDisarmChanged              ();
     void flightModesChanged             ();
     void sensorsPresentBitsChanged      (int sensorsPresentBits);
@@ -1002,6 +1014,9 @@ void _activeVehicleChanged          (Vehicle* newActiveVehicle);
     uint32_t        _telemetryTXBuffer = 0;
     int             _telemetryLNoise = 0;
     int             _telemetryRNoise = 0;
+    int             _radioSNR    = 0;
+    int             _radioRSSI   = 0;
+    int             _radioHWTemp = 0;
     bool            _capabilityBitsKnown                    = false;
     uint64_t        _capabilityBits                         = 0;
     CheckList       _checkListState                         = CheckListNotSetup;

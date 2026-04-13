@@ -12,7 +12,7 @@ include(BuildConfig)
 # Application Metadata
 # ============================================================================
 
-set(QGC_APP_NAME "QGroundControl" CACHE STRING "Application name")
+set(QGC_APP_NAME "L3Harris QGroundControl" CACHE STRING "Application name")
 string(TIMESTAMP _copyright_year "%Y")
 set(QGC_APP_COPYRIGHT "Copyright (c) ${_copyright_year} QGroundControl. All rights reserved." CACHE STRING "Copyright notice")
 set(QGC_APP_DESCRIPTION "Open Source Ground Control App" CACHE STRING "Application description")
@@ -90,8 +90,9 @@ option(QGC_ENABLE_QT_VIDEOSTREAMING "Enable QtMultimedia video backend" OFF)
 # Need to point these to my repo with custom mavlink message for L3H_Radio_status.xml
 # ============================================================================
 
-set(QGC_MAVLINK_GIT_REPO "https://github.com/mavlink/mavlink.git" CACHE STRING "MAVLink repository URL")
-set(QGC_MAVLINK_GIT_TAG "b1fb5a1a32c41c6e46fea70600d626a0b5a8edbe" CACHE STRING "MAVLink repository commit/tag")
+#set(QGC_MAVLINK_GIT_REPO "https://github.com/mavlink/mavlink.git" CACHE STRING "MAVLink repository URL")
+set(QGC_MAVLINK_GIT_REPO "https://github.com/jmuoio/mavlink.git" CACHE STRING "MAVLink repository URL")
+set(QGC_MAVLINK_GIT_TAG "92600789e969cc078cc240a9800f938c40ef073f" CACHE STRING "MAVLink repository commit/tag")
 set(QGC_MAVLINK_DIALECT "all" CACHE STRING "MAVLink dialect")
 set(QGC_MAVLINK_VERSION "2.0" CACHE STRING "MAVLink protocol version")
 

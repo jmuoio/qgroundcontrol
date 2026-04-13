@@ -90,6 +90,13 @@ project(${QGC_APP_NAME}
     LANGUAGES C CXX
 )
 
+if(MSVC)
+    add_compile_options(
+        /Zc:preprocessor   # enables __VA_OPT__ support (C++20 conforming preprocessor)
+        /bigobj            # increases object file section limit for large MOC files
+    )
+endif()
+
 # ============================================================================
 # CMake & Build System Configuration
 # ============================================================================

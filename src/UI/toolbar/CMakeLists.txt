@@ -33,7 +33,9 @@ qt_add_qml_module(ToolbarModule
         SignalStrength.qml
         SigningIndicator.qml
         TelemetryRSSIIndicator.qml
+        L3HRadioStatusIndicator.qml
         VehicleGPSIndicator.qml
         VehicleMessageList.qml
     NO_PLUGIN
+    QML_FILES L3HRadioStatusIndicator.qml
 )

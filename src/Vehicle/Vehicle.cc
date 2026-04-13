@@ -588,6 +588,25 @@ void Vehicle::_mavlinkMessageReceived(LinkInterface* link, mavlink_message_t mes
     case MAVLINK_MSG_ID_RADIO_STATUS:
         _handleRadioStatus(message);
         break;
+    case MAVLINK_MSG_ID_L3H_RADIO_STATUS:
+    {
+        mavlink_l3h_radio_status_t cstatus;
+        mavlink_msg_l3h_radio_status_decode(&message, &cstatus);
+
+        if (_radioSNR != static_cast<int>(cstatus.snr)) {
+            _radioSNR = static_cast<int>(cstatus.snr);
+            emit radioSNRChanged(_radioSNR);
+        }
+        if (_radioRSSI != static_cast<int>(cstatus.rssi)) {
+            _radioRSSI = static_cast<int>(cstatus.rssi);
+            emit radioRSSIChanged(_radioRSSI);
+        }
+        if (_radioHWTemp != static_cast<int>(cstatus.hw_temp)) {
+            _radioHWTemp = static_cast<int>(cstatus.hw_temp);
+            emit radioHWTempChanged(_radioHWTemp);
+        }
+        break;
+    }
     case MAVLINK_MSG_ID_RC_CHANNELS:
         _handleRCChannels(message);
         break;
